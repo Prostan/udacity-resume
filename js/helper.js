@@ -1,4 +1,3 @@
-
 /*
 
 This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
@@ -234,17 +233,6 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
-
-var name = "Stan Adamchk";
-var formattedName = HTMLheaderName.replace("%data%", name);
-
-
-var role = "Web Developer";
-var formattedRole = HTMLheaderRole.replace("%dtat%, role");
-
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedRole);
 
 /*
 Uncomment the code below when you're ready to implement a Google Map!
