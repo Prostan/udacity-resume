@@ -7,7 +7,7 @@ var bio = {
     github: "@stan",
     location: "Mountain View, CA"
   },
-  biopic: "images/fry.jpg",
+  biopic: "images/profile.jpg",
   welcomeMessage: "Hello People",
   skills: ["JavaScript", "UI test automation", "Web Development",
     "BE test automation", "CSS"]
