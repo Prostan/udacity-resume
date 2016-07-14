@@ -4,7 +4,7 @@ var bio = {
   contacts: {
     mobile: "508-283-0758",
     email: "stan.adamchyk@gmail.com",
-    github: "@stan",
+    github: "@Prostan",
     location: "Mountain View, CA"
   },
   biopic: "images/profile.jpg",
