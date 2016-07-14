@@ -4,14 +4,14 @@ var bio = {
   contacts: {
     mobile: "508-283-0758",
     email: "stan.adamchyk@gmail.com",
-    github: "@stan",
+    github: "@Prostan",
     location: "Mountain View, CA"
   },
   biopic: "images/profile.jpg",
   welcomeMessage: "IT Professional is looking for new challenge",
   skills: ["Web Development, UI test Automation, BE test Automation",
   "Release managment, Deploiment, Risk managment",
-    "JQure, Angular JS, React, Redux, Backbone", "JavaScript, Java, CSS, HTML, SQL",
+    "JQuery, React, Redux, Backbone", "JavaScript, Java, CSS, HTML, SQL",
     "WebDriver, TestNg, Maven, Allure, Gradle, LogStash, Git",
     "MySQL, Cassandra, Micrasoft SQL server"
   ]
@@ -89,15 +89,22 @@ var work = {
 var projects = {
   projects: [
     {
+<<<<<<< HEAD
       title: "SomeProject 1",
       images: ["images/197x148.gif", "images/197x148.gif"],
       description: "Worked on Enterprice Search and Cloud search projects",
       dates: "2015"
+=======
+      "title": "SomeProject 1",
+      "images": ["images/project2-img.jpg", "images/project3-img.jpg"],
+      "description": "Worked on Enterprice Search and Cloud search projects",
+      "dates": 2015
+>>>>>>> fc75b43dc4d5f08ab670365e449c4140d81cf3bc
     }
   ]
 };
 
-bio.displayHeader = function() {
+bio.displayHeaderAndFooter = function() {
 
   var fomrattedRole = HTMLheaderRole.replace("%data%", bio.role);
   $("#header").prepend(fomrattedRole);
@@ -107,15 +114,19 @@ bio.displayHeader = function() {
 
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
   $("#topContacts").append(formattedMobile);
+  $("#footerContacts").prepend(formattedMobile);
 
   var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
   $("#topContacts").append(formattedEmail);
+  $("#footerContacts").append(formattedEmail);
 
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
   $("#topContacts").append(formattedGithub);
+  $("#footerContacts").append(formattedGithub);
 
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
   $("#topContacts").append(formattedLocation);
+  $("#footerContacts").append(formattedLocation);
 
   var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
   $("#header").append(formattedBiopic);
@@ -132,7 +143,7 @@ bio.displayHeader = function() {
   });
 };
 
-bio.displayHeader();
+bio.displayHeaderAndFooter();
 
 work.displayJobs = function() {
 
