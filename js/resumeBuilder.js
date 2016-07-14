@@ -18,81 +18,81 @@ var bio = {
 };
 
 var education = {
-  "schools": [
+  schools: [
     {
-      "name": "Zyrovicy College",
-      "location": "Zyrovicy, BY",
-      "degree": "BA",
-      "major": "ME",
-      "dates": 2013,
-      "url": "https://udacity.com"
+      name: "Zyrovicy College",
+      location: "Zyrovicy, BY",
+      degree: "BA",
+      majors: ["ME"],
+      dates: "2013",
+      url: "https://udacity.com"
     },
     {
-      "name": "BSATU",
-      "location": "Minsk, BY",
-      "degree": "Masters",
-      "major": "ME",
-      "dates": 2016,
-      "url": "https://udacity.com"
+      name: "BSATU",
+      location: "Minsk, BY",
+      degree: "Masters",
+      majors: ["ME"],
+      dates: "2016",
+      url: "https://udacity.com"
     }
   ],
-  "onlineCourses": [
+  onlineCourses: [
     {
-    "title": "WebDeveloper",
-    "school": "Udacity",
-    "dates": "2016",
-    "url": "https://classroom.udacity.com/nanodegrees/nd001"
-  }
+    title: "WebDeveloper",
+    school: "Udacity",
+    dates: "2016",
+    url: "https://classroom.udacity.com/nanodegrees/nd001"
+    }
   ]
 };
 
 var work = {
-  "jobs": [
+  jobs: [
     {
-      "employer": "MokaFive",
-      "title": "QA Engineer",
-      "location": "Redwood City, CA",
-      "description": "Enterprice managment system",
-      "dates": "2012 - 2013"
+      employer: "MokaFive",
+      title: "QA Engineer",
+      location: "Redwood City, CA",
+      description: "Enterprice managment system",
+      dates: "2012 - 2013"
     },
     {
-      "employer": "Salesforce.com",
-      "title": "QA Engineer",
-      "location": "San Franciso, CA",
-      "description": "CRM, Chatter",
-      "dates": "2012 - 2013"
+      employer: "Salesforce.com",
+      title: "QA Engineer",
+      location: "San Franciso, CA",
+      description: "CRM, Chatter",
+      dates: "2012 - 2013"
     },
     {
-      "employer": "Google",
-      "title": "Automation QA Engineer",
-      "location": "Mountain View, CA",
-      "description": "Enterprice Search and Cloud search test automation",
-      "dates": "2013 - 2015"
+      employer: "Google",
+      title: "Automation QA Engineer",
+      location: "Mountain View, CA",
+      description: "Enterprice Search and Cloud search test automation",
+      dates: "2013 - 2015"
     },
     {
-      "employer": "Linkedin",
-      "title": "QA Engineer, Release Manager",
-      "location": "Sunnyvale, CA",
-      "description": "Likedin prodactivity apps test automation",
-      "dates": "2015 - 2016"
+      employer: "Linkedin",
+      title: "QA Engineer, Release Manager",
+      location: "Sunnyvale, CA",
+      description: "Likedin prodactivity apps test automation",
+      dates: "2015 - 2016"
     },
     {
-      "employer": "SleepIQ",
-      "title": "Software Developer in Test, Server",
-      "location": "San Jose, CA",
-      "description": "Cloud and Server side test automation",
-      "dates": "2016 - current"
+      employer: "SleepIQ",
+      title: "Software Developer in Test, Server",
+      location: "San Jose, CA",
+      description: "Cloud and Server side test automation",
+      dates: "2016 - current"
     }
   ]
 };
 
 var projects = {
-  "projects": [
+  projects: [
     {
-      "title": "SomeProject 1",
-      "images": ["images/197x148.gif", "images/197x148.gif"],
-      "description": "Worked on Enterprice Search and Cloud search projects",
-      "dates": 2015
+      title: "SomeProject 1",
+      images: ["images/197x148.gif", "images/197x148.gif"],
+      description: "Worked on Enterprice Search and Cloud search projects",
+      dates: "2015"
     }
   ]
 };
@@ -211,9 +211,11 @@ education.display = function() {
       education.schools[school].location);
     $(".education-entry:last").append(formattedLocation);
 
-    var formattedMajor = HTMLschoolMajor.replace("%data%",
-      education.schools[school].major);
-    $(".education-entry:last").append(formattedMajor);
+    var majors = education.schools[school].majors;
+    majors.forEach(function(major) {
+      var formattedMajor = HTMLschoolMajor.replace("%data%", major);
+      $(".education-entry:last").append(formattedMajor);
+    });
   });
 
     $(".education-entry:last").append(HTMLonlineClasses);
