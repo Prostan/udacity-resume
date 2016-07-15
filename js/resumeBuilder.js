@@ -9,11 +9,11 @@ var bio = {
   },
   biopic: "images/profile.jpg",
   welcomeMessage: "IT Professional is looking for new challenge",
-  skills: ["Web Development, UI test Automation, BE test Automation",
-  "Release managment, Deploiment, Risk managment",
-    "JQuery, React, Redux, Backbone", "JavaScript, Java, CSS, HTML, SQL",
-    "WebDriver, TestNg, Maven, Allure, Gradle, LogStash, Git",
-    "MySQL, Cassandra, Micrasoft SQL server"
+  skills: ["Web Development", "UI test Automation", "BE test Automation",
+  "Release managment", "Deploiment", "Risk managment",
+    "JQuery", "React", "Redux", "Backbone", "JavaScript", "Java", "CSS", "HTML", "SQL",
+    "WebDriver", "TestNg", "Maven", "Allure", "Gradle", "LogStash", "Git",
+    "MySQL", "Cassandra", "Micrasoft SQL server"
   ]
 };
 
@@ -89,17 +89,10 @@ var work = {
 var projects = {
   projects: [
     {
-<<<<<<< HEAD
       title: "SomeProject 1",
-      images: ["images/197x148.gif", "images/197x148.gif"],
+      images: ["images/project2-img.jpg", "images/project3-img.jpg"],
       description: "Worked on Enterprice Search and Cloud search projects",
       dates: "2015"
-=======
-      "title": "SomeProject 1",
-      "images": ["images/project2-img.jpg", "images/project3-img.jpg"],
-      "description": "Worked on Enterprice Search and Cloud search projects",
-      "dates": 2015
->>>>>>> fc75b43dc4d5f08ab670365e449c4140d81cf3bc
     }
   ]
 };
@@ -113,20 +106,16 @@ bio.displayHeaderAndFooter = function() {
   $("#header").prepend(fomrattedName);
 
   var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-  $("#topContacts").append(formattedMobile);
-  $("#footerContacts").prepend(formattedMobile);
+  $("#topContacts, #footerContacts").append(formattedMobile);
 
   var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-  $("#topContacts").append(formattedEmail);
-  $("#footerContacts").append(formattedEmail);
+  $("#topContacts, #footerContacts").append(formattedEmail);
 
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-  $("#topContacts").append(formattedGithub);
-  $("#footerContacts").append(formattedGithub);
+  $("#topContacts, #footerContacts").append(formattedGithub);
 
   var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-  $("#topContacts").append(formattedLocation);
-  $("#footerContacts").append(formattedLocation);
+  $("#topContacts, #footerContacts").append(formattedLocation);
 
   var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
   $("#header").append(formattedBiopic);
@@ -137,9 +126,9 @@ bio.displayHeaderAndFooter = function() {
   $("#header").append(HTMLskillsStart);
 
   var skills = bio.skills;
-  skills.forEach(function(skill) {
+  skills.map(function(skill) {
     var formattedSkill = HTMLskills.replace("%data%", skill);
-    $("#header").append(formattedSkill);
+    $("#skills").append(formattedSkill);
   });
 };
 
@@ -150,8 +139,8 @@ work.displayJobs = function() {
   //Creating new div for work experiencsse
   $("#workExperience").append(HTMLworkStart);
 
-  //Using forEach to iteretaee
-  $.each(work.jobs, function(key)  {
+  //Using map to iteretaee
+  Object.keys(work.jobs).map(function(key)  {
     var formatEmployer = HTMLworkEmployer.replace("%data%",
       work.jobs[key].employer);
     var formatTitle = HTMLworkTitle.replace("%data%", work.jobs[key].title);
@@ -176,7 +165,7 @@ work.displayJobs();
 projects.display = function() {
   $("#projects").append(HTMLprojectStart);
 
-  $.each(projects.projects, function(key) {
+  Object.keys(projects.projects).map (function(key) {
     var formattedTitle = HTMLprojectTitle.replace("%data%",
       projects.projects[key].title);
     $(".project-entry:last").append(formattedTitle);
@@ -191,7 +180,7 @@ projects.display = function() {
 
     if (projects.projects[key].images.length > 0) {
       var images = projects.projects[key].images;
-      $.each(images, function(image) {
+      Object.keys(images).map(function(image) {
         var formattedImage = HTMLprojectImage.replace("%data%",
           projects.projects[key].images[image]);
         $(".project-entry:last").append(formattedImage);
@@ -204,7 +193,7 @@ projects.display = function() {
 projects.display();
 
 education.display = function() {
-  $.each(education.schools, function(school) {
+  Object.keys(education.schools).map(function(school) {
     $("#education").append(HTMLschoolStart);
 
     var formattedSchoolName = HTMLschoolName.replace("%data%",
@@ -223,7 +212,7 @@ education.display = function() {
     $(".education-entry:last").append(formattedLocation);
 
     var majors = education.schools[school].majors;
-    majors.forEach(function(major) {
+    majors.map(function(major) {
       var formattedMajor = HTMLschoolMajor.replace("%data%", major);
       $(".education-entry:last").append(formattedMajor);
     });
@@ -231,7 +220,7 @@ education.display = function() {
 
     $(".education-entry:last").append(HTMLonlineClasses);
 
-    $.each(education.onlineCourses, function(course) {
+    Object.keys(education.onlineCourses).map(function(course) {
       var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",
         education.onlineCourses[course].title);
       var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",
@@ -253,4 +242,3 @@ education.display = function() {
 education.display();
 
 $("#mapDiv").append(googleMap);
-initializeMap();
